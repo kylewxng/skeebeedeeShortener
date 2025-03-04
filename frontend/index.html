@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple URL Shortener</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <div class="content-left">
+            <h1>URL Shortener</h1>
+            <form action="#" method="POST">
+                <label for="url">Enter your URL:</label>
+                <input type="url" id="url" name="url" placeholder="https://example.com" required>
+                <button type="submit">Shorten URL</button>
+            </form>
+            <div id="shortened-url" class="shortened-url">
+                <p>Shortened URL will appear here</p>
+            </div>
+        </div>
+        <div class="content-right">
+            <img src="https://cdn.shorter.me/assets/img/free-url-shortener.png" alt="Image placeholder">
+        </div>
+    </div>
     <script src="script.js"></script>
     <script src="./dist/bundle.js" defer></script>
 </body>
