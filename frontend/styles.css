@@ -8,12 +8,13 @@
 }
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(138, 181, 226);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color:  #c9c9f1;
 }
+
 .form-container {
     background-color: #b8d1ed;
     padding: 40px;
@@ -53,7 +54,7 @@ button {
   
   button:hover {
     color: rgba(255, 255, 255, 1);
-    box-shadow: 0 10px 15px rgba(70, 184, 215, 0.4);
+    box-shadow: 0 10px 15px rgba(41, 139, 224, 0.4);
     transform: scale(1.03);
     font-weight: 700;
   }
@@ -67,8 +68,8 @@ button {
   }
   h2 {
     margin-bottom: 30px;
-    font-size: 32px;
-    transition: font-size 1s ease-in-out;
+    font-size: 30px;
+    letter-spacing: 0.3px;
   }
   label {
     font-size: 20px;
@@ -79,10 +80,7 @@ button {
   input::placeholder {
     font-family: 'Montserrat', sans-serif;
   }
-  .title-container {
-    text-align: center;
-    transition: transform 1s ease-in-out; 
-}
-.shrink {
-    font-size: 25px; 
+.h2Color {
+    color:rgba(27, 49, 214, 0.4);
+    font-size: 24px;
 }

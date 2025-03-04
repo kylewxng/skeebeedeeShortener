@@ -6,19 +6,12 @@ function toggleForm() {
     loginForm.classList.toggle("active");
 }
 
-const title = document.getElementById("title");
-function shrinkTitleOnLoad() {
-    setTimeout(() => {
-        title.classList.add("shrink");
-    }, 500); 
-}
+const buttons = document.querySelectorAll(".submitButton");
 
-window.onload = shrinkTitleOnLoad;
+buttons.forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
 
-title.addEventListener("mouseenter", () => {
-    title.classList.add("shrink");
-});
-
-title.addEventListener("mouseleave", () => {
-    title.classList.remove("shrink");
+        window.location.href="index.html";
+    })
 });
