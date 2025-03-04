@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Login & Signup</title>
+<script defer src="bundle.js"></script></head>
+<body>
+    <div id="loginContainer" class="form-container active">
+        <div class="title-container">
+            <h2 id="title">SkeebeedeeShortener</h2>
+        </div>
+        <form action="login.php" method="post">
+            <label for="loginUser">Email Address</label>
+            <input type="email" id="loginEmail" name="email" placeholder="Username@gmail.com" required>
+            
+            <label for="loginPass">Password</label>
+            <input type="password" id="loginPass" name="password" placeholder="********" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
+    </div>
+    
+    <div id="signupContainer" class="form-container">
+        <h2>SkeebeedeeShortener</h2>
+        <form action="signup.php" method="post">
+            <label for="signupEmail">Email Address</label>
+            <input type="email" id="signupEmail" name="email" placeholder="Username@gmail.com" required>
+            
+            <label for="confirmEmail">Confirm Email Address</label>
+            <input type="email" id="confirmEmail" name="email" placeholder="Username@gmail.com" required>
+            
+            <label for="signupPass">Password</label>
+            <input type="password" id="signupPass" name="password" placeholder="********" required>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+    </div>
+    <script src="script.js"></script>
+    <script src="./dist/bundle.js" defer></script>
+</body>
+</html>
