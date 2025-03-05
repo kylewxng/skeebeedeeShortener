@@ -11,13 +11,8 @@ CORS(app)
 url_store = {}
 
 @app.route('/')
-def home():
-    """Serve the main homepage."""
-    return render_template("index.html")
-
-@app.route('/login')
 def login():
-    """Serve the login page."""
+    """Serve the login page by default."""
     return render_template("login.html")
 
 @app.route('/shorten', methods=['POST'])
