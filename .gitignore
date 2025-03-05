@@ -64,3 +64,11 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Python virtual environment
+backend/venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
