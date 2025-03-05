@@ -1,46 +1,41 @@
-from flask import Flask, request, jsonify, redirect, render_template
-import shortuuid
+from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
-import os
+import random
+import string
 
-app = Flask(__name__, static_folder="static", template_folder="../frontend")
+app = Flask(__name__)
+CORS(app)  # Allow frontend requests
 
-CORS(app)
+# Dictionary to store shortened URLs
+url_database = {}
+BASE_URL = "http://127.0.0.1:5000"
 
-# In-memory storage for shortened URLs
-url_store = {}
-
-@app.route('/')
-def login():
-    """Serve the login page by default."""
-    return render_template("login.html")
+def generate_short_code(length=6):
+    """Generate a random short code."""
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 @app.route('/shorten', methods=['POST'])
 def shorten_url():
-    """Shorten a URL and return the shortened version."""
-    data = request.json  
-    original_url = data.get("originalUrl")  
+    """API endpoint to shorten a URL."""
+    data = request.get_json()
+    original_url = data.get("originalUrl")
 
     if not original_url:
         return jsonify({"error": "Invalid URL"}), 400
 
-    short_code = shortuuid.uuid()[:6]  
-    url_store[short_code] = original_url  
+    short_code = generate_short_code()
+    url_database[short_code] = original_url
 
-    base_url = request.host_url.rstrip('/')
-    short_url = f"{base_url}/{short_code}"
-    return jsonify({"shortUrl": short_url})  
+    return jsonify({"shortUrl": f"{BASE_URL}/{short_code}"})
 
 @app.route('/<short_code>', methods=['GET'])
 def redirect_url(short_code):
-    """Redirects a short URL to the original long URL."""
-    original_url = url_store.get(short_code)
+    """Redirect to the original URL if the short code exists."""
+    original_url = url_database.get(short_code)
 
-    if not original_url:
-        return jsonify({"error": "URL not found"}), 404
-
-    return redirect(original_url)  
+    if original_url:
+        return redirect(original_url) 
+    return jsonify({"error": "Short URL not found"}), 404
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
