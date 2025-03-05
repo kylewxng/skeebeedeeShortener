@@ -3,7 +3,8 @@ import shortuuid
 from flask_cors import CORS
 import os
 
-app = Flask(__name__, template_folder="../frontend")  # Tell Flask where to find templates
+app = Flask(__name__, static_folder="static", template_folder="../frontend")
+
 CORS(app)
 
 # In-memory storage for shortened URLs
