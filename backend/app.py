@@ -25,7 +25,7 @@ def shorten_url():
     short_code = shortuuid.uuid()[:6]  # Generate a unique short code
     url_store[short_code] = original_url  # Store mapping
 
-    base_url = os.getenv("RENDER_EXTERNAL_URL", "http://localhost:5000")
+    base_url = request.host_url.rstrip('/')
     short_url = f"{base_url}/{short_code}"
     return jsonify({"shortUrl": short_url})  # Return the short URL
 
