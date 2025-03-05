@@ -9,9 +9,7 @@
 <script defer src="bundle.js"></script></head>
 <body>
     <div id="loginContainer" class="form-container active">
-        <div class="title-container">
-            <h2 id="title">SkeebeedeeShortener</h2>
-        </div>
+        <h2>Skeebeedee<span class="h2Color">Shortener</span></h2>
         <form action="login.php" method="post">
             <label for="loginUser">Email Address</label>
             <input type="email" id="loginEmail" name="email" placeholder="Username@gmail.com" required>
@@ -19,13 +17,13 @@
             <label for="loginPass">Password</label>
             <input type="password" id="loginPass" name="password" placeholder="********" required>
             
-            <button type="submit">Login</button>
+            <button class="submitButton" id="loginButton" type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
     </div>
     
     <div id="signupContainer" class="form-container">
-        <h2>SkeebeedeeShortener</h2>
+        <h2>Skeebeedee<span class="h2Color">Shortener</span></h2>
         <form action="signup.php" method="post">
             <label for="signupEmail">Email Address</label>
             <input type="email" id="signupEmail" name="email" placeholder="Username@gmail.com" required>
@@ -36,7 +34,7 @@
             <label for="signupPass">Password</label>
             <input type="password" id="signupPass" name="password" placeholder="********" required>
             
-            <button type="submit">Sign Up</button>
+            <button class="submitButton" id="signupButton" type="submit">Sign Up</button>
         </form>
         <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
     </div>
