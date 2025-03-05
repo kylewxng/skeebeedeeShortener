@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/shorten", {
+            const response = await fetch("https://skeebeedeeshortener.onrender.com/shorten", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "application/json" },    
                 body: JSON.stringify({ originalUrl })
             });
 
